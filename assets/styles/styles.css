@@ -21,6 +21,15 @@ input[type="range"]::-webkit-slider-thumb {
   background: var(--color-accent);
   cursor: pointer;
   -webkit-appearance: none;
+  transition: var(--transition);
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 body {
   font-family: var(--font-primary);
@@ -65,12 +74,15 @@ h1 {
 aside.form {
   background-color: var(--color-silver);
   border-radius: 20px;
-  padding: 30px 0 60px 0;
+  padding: 30px 0 30px 0;
   text-align: left;
   width: 550px;
   display: block;
   margin: auto;
   position: relative;
+}
+.solar_form .slick-dotted.slick-slider {
+  margin: 0;
 }
 .solar_form .slick-list {
   width: 500px;
@@ -101,21 +113,26 @@ button.btn[type="submit"] {
   z-index: 1;
   height: 50px;
   border-radius: 100px;
-  width: 100%;
+  width: 49.9%;
   top: auto;
-  bottom: -120px !important;
+  bottom: -70px !important;
   padding: 0;
 }
 button.btn[type="submit"] {
   position: absolute;
-  bottom: -5px !important;
-  width: 49.5%;
+  bottom: -15px !important;
+  width: 49.9%;
   right: 0;
   border-radius: 0 50px 50px 0;
   display: none;
 }
 .solar_form button.slick-arrow.slick-prev {
   left: 0;
+  border-radius: 50px 0 0 50px;
+}
+.solar_form button.slick-arrow.slick-next {
+  right: 0;
+  border-radius: 0 50px 50px 0;
 }
 .solar_form button.slick-arrow::before,
 button.btn[type="submit"] {
@@ -133,30 +150,39 @@ button.btn[type="submit"]:hover {
 .solar_form button.slick-arrow.slick-prev::before {
   content: "Back";
 }
-.solar_form button.slick-arrow.slick-next {
+.solar_form button.slick-arrow.slick-next::before {
+  content: "Next";
+}
+/* .solar_form button.slick-arrow.slick-next {
   display: none;
   visibility: hidden;
-}
-.solar_form button.slick-prev.slick-arrow.slick-disabled {
+} */
+.solar_form button.slick-arrow.slick-disabled {
   visibility: hidden;
   transition: var(--transition);
+}
+.solar_form
+  button.slick-prev.slick-arrow.slick-disabled
+  + div.slick-list
+  + button.slick-next {
+  border-radius: 50px;
+  width: 100%;
 }
 aside.form:has(button.slick-prev.slick-arrow.slick-disabled) {
   transition: var(--transition);
-  padding: 30px 0 30px 0;
+  /* padding: 30px 0 30px 0; */
 }
 aside.form ul.slick-dots {
   top: auto;
-  bottom: -170px;
+  bottom: -110px;
   transition: var(--transition);
-  /* pointer-events: none; */
 }
 
-button.slick-prev.slick-arrow.slick-disabled + div + button + ul.slick-dots {
+/* button.slick-prev.slick-arrow.slick-disabled + div + button + ul.slick-dots {
   top: auto;
-  bottom: -130px;
+  bottom: -110px;
   transition: var(--transition);
-}
+} */
 
 aside.form ul.slick-dots li {
   margin: 0;
@@ -214,7 +240,7 @@ input#billAmt {
   display: block;
   border: 1px solid var(--color-accent);
   width: 20%;
-  margin: auto;
+  margin: 0 auto 30px auto;
   padding: 4px;
   outline: 0;
   color: #000;
@@ -243,7 +269,7 @@ input#billAmt {
   font-family: var(--font-primary);
 }
 .solar_form button.slick-arrow.slick-prev.last_slide_activated {
-  width: 49.5%;
+  width: 49.9%;
   border-radius: 50px 0 0 50px;
 }
 .invalid-feedback {
@@ -281,6 +307,10 @@ header {
   }
 }
 @media only screen and (max-width: 480px) {
+  .solar_form button.slick-arrow,
+  button.btn[type="submit"] {
+    width: 49.7%;
+  }
   .form input.form-control {
     font-size: 14px;
   }
@@ -304,8 +334,8 @@ header {
   aside.form {
     padding: 20px !important;
   }
-  .solar_form button.slick-arrow.slick-prev {
-    bottom: -100px !important;
+  .solar_form button.slick-arrow {
+    bottom: -66px !important;
   }
   .solar_form button.slick-arrow::before,
   button.btn[type="submit"] {
@@ -316,8 +346,7 @@ header {
     width: 42%;
   }
   .solar_form button.slick-arrow.slick-prev.last_slide_activated {
-    bottom: -80px !important;
-    left: 0;
+    bottom: -60px !important;
   }
   aside.form ul.slick-dots {
     bottom: -120px;

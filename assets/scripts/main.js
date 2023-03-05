@@ -1,9 +1,12 @@
 $(document).ready(function () {
+  // Variables
   let zip = document.getElementById("zip");
   let nextBtn = document.querySelector(".slick-next.slick-arrow");
-  let rangeBill = document.querySelector("#range");
-  let billRangeInp = document.querySelector("#billAmt");
+  let rangeBill = document.getElementById("range");
+  let billRangeInp = document.getElementById("billAmt");
   let phone = document.getElementById("phone");
+  
+  // Actions
   zip.addEventListener("keypress", (e) => {
     if (!e.target.value == "") {
       if (e.key === "Enter") {
@@ -12,14 +15,20 @@ $(document).ready(function () {
       }
     }
   });
+
   rangeBill.addEventListener("change", function () {
     billRangeInp.value = this.value;
   });
-  billRangeInp.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      e.target.value = rangeBill.value;
-      console.log(e.target.value);
-      console.log(rangeBill.value);
+
+  $(billAmt).on("input propertychange", (e) => {
+    $('input[type="range"]').val(e.target.value).trigger("change");
+  });
+
+  $(billAmt).change((e) => {
+    if (e.target.value >= 600) {
+      e.target.value = 600;
+    } else if (e.target.value <= 100) {
+      e.target.value = 100;
     }
   });
 
@@ -37,6 +46,7 @@ $(document).ready(function () {
         }
       });
   });
+
   $('button.btn[type="submit"]').click(function () {
     setTimeout(() => {
       if ($("form.solar_form").hasClass("was-validated")) {
@@ -44,4 +54,5 @@ $(document).ready(function () {
       }
     });
   });
+  
 });

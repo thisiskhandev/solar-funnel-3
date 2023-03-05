@@ -5,9 +5,11 @@ $(document).ready(function () {
     speed: 300,
     slidesToShow: 1,
     draggable: false,
-    swip: false,
+    swipe: false,
     swipeToSlide: false,
     touchMove: false,
+    draggable: false,
+    accessibility: false,
     slidesToScroll: 1,
     arrows: true,
     responsive: [
@@ -30,6 +32,7 @@ $(document).ready(function () {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          swip: false,
         },
       },
       // You can unslick at a given breakpoint now by adding:
@@ -47,11 +50,10 @@ $(document).ready(function () {
     if (currentSlide === 8) {
       // Do something when last slide becomes active...
       $(".slick-prev.slick-arrow").addClass("last_slide_activated");
-      $('button.btn[type="submit"]').fadeIn(300);
+      $('button.btn[type="submit"]').fadeIn(200);
     } else {
       $(".slick-prev.slick-arrow").removeClass("last_slide_activated");
-      $('button.btn[type="submit"]').fadeOut(300);
+      $('button.btn[type="submit"]').fadeOut(100);
     }
   });
-
 });
