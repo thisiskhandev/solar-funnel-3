@@ -68,7 +68,7 @@ aside.form {
   margin: auto;
   position: relative;
 }
-.slick-list {
+.solar_form .slick-list {
   width: 500px;
   margin: auto !important;
 }
@@ -178,4 +178,14 @@ input#billAmt {
   padding: 4px;
   outline: 0;
   color: gray;
+}
+@media only screen and (max-width: 480px) {
+  .solar_form .slick-list,
+  aside.form {
+    width: 100%;
+  }
+  aside.form {
+    overflow: hidden;
+    padding: 20px !important;
+  }
 }

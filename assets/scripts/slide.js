@@ -5,6 +5,9 @@ $(document).ready(function () {
     speed: 300,
     slidesToShow: 1,
     draggable: false,
+    swip: false,
+    swipeToSlide: false,
+    touchMove: false,
     slidesToScroll: 1,
     arrows: true,
     responsive: [
@@ -33,5 +36,10 @@ $(document).ready(function () {
       // settings: "unslick"
       // instead of a settings object
     ],
+  });
+  $('.responsive').on('swipe', function(event, slick, direction){
+    console.log(direction);
+    
+    // left
   });
 });

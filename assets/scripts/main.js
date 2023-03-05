@@ -3,10 +3,12 @@ $(document).ready(function () {
   let nextBtn = document.querySelector(".slick-next.slick-arrow");
   let rangeBill = document.querySelector("#range");
   let billRangeInp = document.querySelector("#billAmt");
-  zip.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      console.log("Enter");
-      nextBtn.click();
+  zip.addEventListener("keypress", (e) => {
+    if (!e.target.value == "") {
+      if (e.key === "Enter") {
+        console.log("Enter");
+        nextBtn.click();
+      }
     }
   });
   rangeBill.addEventListener("change", function () {
