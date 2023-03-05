@@ -26,6 +26,13 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
       integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
@@ -34,12 +41,27 @@
     ></script>
   </head>
   <body class="body">
-    <main class="container">
-      <section class="row justify-content-center align-items-center vh-100">
+    <header>
+      <section class="row">
+        <div class="col-12">
+          <a class="logo" href="/">
+            <img
+              src="./assets/images/sat-logo.svg"
+              alt="Logo"
+              srcset="./assets/images/sat-logo.svg"
+              width="400"
+              class="img-fluid"
+            />
+          </a>
+        </div>
+      </section>
+    </header>
+    <main class="container" id="content">
+      <section class="row">
         <div class="col-lg-6 col-md-12 col-sm-12"></div>
-        <div class="col-lg-6 col-md-12 col-sm-12">
-          <div style="" class="text-center">
-            <a href="/">
+        <div class="col-lg-6 col-md-12 col-sm-12 center_items">
+          <div class="text-center">
+            <a class="logo" href="/">
               <img
                 src="./assets/images/sat-logo.svg"
                 alt="Logo"
@@ -68,31 +90,36 @@
                         placeholder="Enter your zip code"
                         required
                       />
-                      <div class="valid-feedback">Looks good!</div>
                       <div class="invalid-feedback">
                         Please choose a username.
                       </div>
                     </div>
                   </div>
                   <div class="steps">
-                    <label for=""> Are you home owner? </label>
+                    <label for="">Are you home owner?</label>
                     <i class="bi bi-2-square-fill"></i>
-                    <div class="step_icon">
-                      <select
-                        class="form-select"
-                        id="validationCustom04"
-                        required
-                      >
-                        <option selected value="">
-                          Yes
-                        </option>
-                        <option value="">No</option>
-                      </select>
-
-                      <div class="valid-feedback">Looks good!</div>
-                      <div class="invalid-feedback">
-                        Please choose a username.
-                      </div>
+                    <div class="form-check radios">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="flexRadioDefault"
+                        id="yesOwner"
+                        checked
+                      />
+                      <label class="form-check-label" for="yesOwner">
+                        Yes I am home Owner
+                      </label>
+                    </div>
+                    <div class="form-check radios">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="flexRadioDefault"
+                        id="notOwner"
+                      />
+                      <label class="form-check-label" for="notOwner">
+                        No I am not a home Owner
+                      </label>
                     </div>
                   </div>
                   <div class="steps">
@@ -113,10 +140,127 @@
                         <h6>100</h6>
                         <h6>600</h6>
                       </div>
-                      <input type="text" value="350" name="billAmt" id="billAmt">
+                      <h6 class="prefix">$</h6>
+                      <input
+                        class="has-prefix"
+                        type="text"
+                        value="350"
+                        name="billAmt"
+                        id="billAmt"
+                      />
+                    </div>
+                  </div>
+                  <div class="steps">
+                    <label for="fullSun">How sunny is your roof area?</label>
+                    <div class="form-check radios">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="flexRadioDefault"
+                        id="fullSun"
+                        checked
+                      />
+                      <label class="form-check-label" for="fullSun">
+                        Full Sun
+                      </label>
+                    </div>
+                    <div class="form-check radios">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="flexRadioDefault"
+                        id="halfSun"
+                      />
+                      <label class="form-check-label" for="halfSun">
+                        Half Sun
+                      </label>
+                    </div>
+                  </div>
+                  <div class="steps">
+                    <label for="email">
+                      What email address should your result be sent to?
+                    </label>
+                    <div class="step_icon_i">
+                      <i class="fa-regular fa-envelope"></i>
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        name="email"
+                        placeholder="Email address"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        Please provide a valid Email Address
+                      </div>
+                    </div>
+                  </div>
+                  <div class="steps">
+                    <label for="fname"> What is your first name? </label>
+                    <div class="step_icon_i">
+                      <i class="fa-regular fa-user"></i>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="fname"
+                        name="fname"
+                        placeholder="First Name"
+                        required
+                      />
+                      <div class="invalid-feedback">Please fill the form</div>
+                    </div>
+                  </div>
+                  <div class="steps">
+                    <label for="lname"> What is your last name? </label>
+                    <div class="step_icon_i">
+                      <i class="fa-regular fa-user"></i>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="lname"
+                        name="lname"
+                        placeholder="Last Name"
+                        required
+                      />
+                      <div class="invalid-feedback">Please fill the form</div>
+                    </div>
+                  </div>
+                  <div class="steps">
+                    <label for="address">
+                      Where do you want the solar panels installed (street
+                      address)?
+                    </label>
+                    <div class="step_icon">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="address"
+                        name="address"
+                        placeholder="Your Address"
+                        required
+                      />
+                      <div class="invalid-feedback">Please fill the form</div>
+                    </div>
+                  </div>
+                  <div class="steps">
+                    <label for="phone"
+                      >What phone number can we reach you at?</label
+                    >
+                    <div class="step_icon phone">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="phone"
+                        name="phone"
+                        placeholder="Phone (000)-000-0000"
+                        maxlength="14"
+                        required
+                      />
+                      <div class="invalid-feedback">Please fill the form</div>
                     </div>
                   </div>
                 </section>
+                <button class="btn btn-primary" type="submit">Finished</button>
               </form>
             </aside>
           </div>

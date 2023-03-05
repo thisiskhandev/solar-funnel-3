@@ -37,9 +37,21 @@ $(document).ready(function () {
       // instead of a settings object
     ],
   });
-  $('.responsive').on('swipe', function(event, slick, direction){
+  $(".responsive").on("swipe", function (event, slick, direction) {
     console.log(direction);
-    
     // left
   });
+  $(".responsive").on("afterChange", function (event, slick, currentSlide) {
+    // var lastSlideIndex = slick.slideCount - 1;
+    // $(".steps.slick-slide:last-child").hasClass("slick-active");
+    if (currentSlide === 8) {
+      // Do something when last slide becomes active...
+      $(".slick-prev.slick-arrow").addClass("last_slide_activated");
+      $('button.btn[type="submit"]').fadeIn(300);
+    } else {
+      $(".slick-prev.slick-arrow").removeClass("last_slide_activated");
+      $('button.btn[type="submit"]').fadeOut(300);
+    }
+  });
+
 });

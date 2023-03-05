@@ -1,7 +1,7 @@
 @import url(./fonts.css);
 :root {
   --font-heading: "Oswald", sans-serif;
-  --font-primary: ;
+  --font-primary: "Poppins", sans-serif;
   --font-tagline: "Montserrat", sans-serif;
   --color-primary: #2a698e;
   --color-accent: #49b746;
@@ -25,7 +25,7 @@ input[type="range"]::-webkit-slider-thumb {
 body {
   font-family: var(--font-primary);
   font-weight: 500;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 body.body {
   background-image: url(../images/bg_funnel_3.jpg);
@@ -33,12 +33,13 @@ body.body {
   background-position: top center;
   background-repeat: no-repeat;
   color: #fff;
+  height: 100vh;
 }
 p {
   margin: 0;
   line-height: 1.4rem;
 }
-h1,
+h1.heading,
 h2 {
   font-family: var(--font-heading);
 }
@@ -50,6 +51,9 @@ h1 {
 .tagline {
   font-family: var(--font-primary);
   margin-bottom: 30px;
+}
+.tagline strong {
+  color: var(--color-tagline);
 }
 .form label {
   font-family: var(--font-primary);
@@ -72,6 +76,10 @@ aside.form {
   width: 500px;
   margin: auto !important;
 }
+.form input.form-control {
+  width: 98% !important;
+  margin: auto;
+}
 form .form-control,
 .form .form-select {
   border: 0;
@@ -84,7 +92,10 @@ form .form-control:focus,
 .form .form-select:focus {
   box-shadow: none;
 }
-.solar_form button.slick-arrow {
+.solar_form button.slick-arrow,
+button.btn[type="submit"] {
+  box-shadow: none;
+  border: none;
   transition: var(--transition);
   background-color: var(--color-accent);
   z-index: 1;
@@ -93,15 +104,31 @@ form .form-control:focus,
   width: 100%;
   top: auto;
   bottom: -120px !important;
+  padding: 0;
+}
+button.btn[type="submit"] {
+  position: absolute;
+  bottom: -5px !important;
+  width: 49.5%;
+  right: 0;
+  border-radius: 0 50px 50px 0;
+  display: none;
 }
 .solar_form button.slick-arrow.slick-prev {
   left: 0;
 }
-.solar_form button.slick-arrow::before {
+.solar_form button.slick-arrow::before,
+button.btn[type="submit"] {
   font-family: var(--font-tagline);
-  font-weight: bold;
-  font-size: 21px;
+  font-weight: 700;
+  font-size: 20px;
   opacity: 1;
+}
+.solar_form button.slick-arrow:hover,
+button.btn[type="submit"]:hover {
+  transition: var(--transition);
+  background-color: var(--color-accent);
+  filter: brightness(0.9);
 }
 .solar_form button.slick-arrow.slick-prev::before {
   content: "Back";
@@ -122,6 +149,7 @@ aside.form ul.slick-dots {
   top: auto;
   bottom: -170px;
   transition: var(--transition);
+  /* pointer-events: none; */
 }
 
 button.slick-prev.slick-arrow.slick-disabled + div + button + ul.slick-dots {
@@ -169,23 +197,135 @@ input#zip::before {
   z-index: 9;
   top: 15px;
 }
+.step_icon.phone::before {
+  content: url(../images/phone-call.svg);
+  left: 12px;
+}
+.step_icon_i > i {
+  color: var(--color-accent);
+  transform: translate(13px, 38px);
+  font-size: 17px;
+}
+.step_icon_i {
+  margin-top: -10px;
+}
 input#billAmt {
   text-align: center;
   display: block;
-  border: 1px solid green;
+  border: 1px solid var(--color-accent);
   width: 20%;
   margin: auto;
   padding: 4px;
   outline: 0;
-  color: gray;
+  color: #000;
+  font-family: var(--font-primary);
+}
+.form-check.radios {
+  font-size: 14px;
+  padding: 0;
+  margin-left: 25px;
+}
+.form-check.radios label {
+  font-family: var(--font-tagline);
+  font-size: 15px;
+  color: #000;
+}
+.form-check.radios:not(:last-child) {
+  margin-bottom: 3px;
+}
+.prefix {
+  color: #000;
+  text-align: center;
+  pointer-events: none;
+  font-weight: 400;
+  margin-bottom: -26px;
+  transform: translateX(-23px);
+  font-family: var(--font-primary);
+}
+.solar_form button.slick-arrow.slick-prev.last_slide_activated {
+  width: 49.5%;
+  border-radius: 50px 0 0 50px;
+}
+.invalid-feedback {
+  margin-left: 5px;
+}
+header {
+  display: none;
+}
+/* ----------------- MEDIA QURIES */
+@media only screen and (min-width: 1024px) {
+  .center_items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+}
+@media only screen and (max-width: 767px) {
+  html {
+    overflow-x: hidden;
+  }
+  #content .logo {
+    display: none;
+  }
+  header {
+    display: block;
+  }
+  header a {
+    display: block;
+    text-align: center;
+  }
+  main#content {
+    margin-top: 80px;
+  }
 }
 @media only screen and (max-width: 480px) {
+  .form input.form-control {
+    font-size: 14px;
+  }
+  .step_icon_i > i {
+    transform: translate(13px, 37px);
+  }
+  .step_icon::before {
+    top: 14px;
+  }
+  .tagline {
+    font-size: 18px;
+    margin: 20px 0;
+  }
+  .form label {
+    font-size: 16px;
+  }
   .solar_form .slick-list,
   aside.form {
     width: 100%;
   }
   aside.form {
-    overflow: hidden;
     padding: 20px !important;
+  }
+  .solar_form button.slick-arrow.slick-prev {
+    bottom: -100px !important;
+  }
+  .solar_form button.slick-arrow::before,
+  button.btn[type="submit"] {
+    font-size: 16px;
+  }
+  .solar_form button.slick-arrow.last_slide_activated,
+  button.btn[type="submit"] {
+    width: 42%;
+  }
+  .solar_form button.slick-arrow.slick-prev.last_slide_activated {
+    bottom: -80px !important;
+    left: 0;
+  }
+  aside.form ul.slick-dots {
+    bottom: -120px;
+  }
+  button.btn[type="submit"] {
+    right: 20px;
+  }
+  input#billAmt {
+    width: 30%;
   }
 }
