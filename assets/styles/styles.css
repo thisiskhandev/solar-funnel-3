@@ -1,0 +1,181 @@
+@import url(./fonts.css);
+:root {
+  --font-heading: "Oswald", sans-serif;
+  --font-primary: ;
+  --font-tagline: "Montserrat", sans-serif;
+  --color-primary: #2a698e;
+  --color-accent: #49b746;
+  --color-tagline: #faa00f;
+  --color-yellow: #fbe403;
+  --color-silver: #d4d4d4;
+  --transition: 0.3s;
+}
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+input[type="range"]::-webkit-slider-thumb {
+  background: var(--color-accent);
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+body {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  overflow: hidden;
+}
+body.body {
+  background-image: url(../images/bg_funnel_3.jpg);
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+p {
+  margin: 0;
+  line-height: 1.4rem;
+}
+h1,
+h2 {
+  font-family: var(--font-heading);
+}
+h1 {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.2rem;
+}
+.tagline {
+  font-family: var(--font-primary);
+  margin-bottom: 30px;
+}
+.form label {
+  font-family: var(--font-primary);
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 0 0 10px 0;
+}
+aside.form {
+  background-color: var(--color-silver);
+  border-radius: 20px;
+  padding: 30px 0 60px 0;
+  text-align: left;
+  width: 550px;
+  display: block;
+  margin: auto;
+  position: relative;
+}
+.slick-list {
+  width: 500px;
+  margin: auto !important;
+}
+form .form-control,
+.form .form-select {
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 13px 40px;
+}
+form .form-control:focus,
+.form .form-select:focus {
+  box-shadow: none;
+}
+.solar_form button.slick-arrow {
+  transition: var(--transition);
+  background-color: var(--color-accent);
+  z-index: 1;
+  height: 50px;
+  border-radius: 100px;
+  width: 100%;
+  top: auto;
+  bottom: -120px !important;
+}
+.solar_form button.slick-arrow.slick-prev {
+  left: 0;
+}
+.solar_form button.slick-arrow::before {
+  font-family: var(--font-tagline);
+  font-weight: bold;
+  font-size: 21px;
+  opacity: 1;
+}
+.solar_form button.slick-arrow.slick-prev::before {
+  content: "Back";
+}
+.solar_form button.slick-arrow.slick-next {
+  display: none;
+  visibility: hidden;
+}
+.solar_form button.slick-prev.slick-arrow.slick-disabled {
+  visibility: hidden;
+  transition: var(--transition);
+}
+aside.form:has(button.slick-prev.slick-arrow.slick-disabled) {
+  transition: var(--transition);
+  padding: 30px 0 30px 0;
+}
+aside.form ul.slick-dots {
+  top: auto;
+  bottom: -170px;
+  transition: var(--transition);
+}
+
+button.slick-prev.slick-arrow.slick-disabled + div + button + ul.slick-dots {
+  top: auto;
+  bottom: -130px;
+  transition: var(--transition);
+}
+
+aside.form ul.slick-dots li {
+  margin: 0;
+}
+aside.form ul.slick-dots li.slick-active {
+  margin: 0 10px;
+}
+aside.form ul.slick-dots li > button::before {
+  display: none;
+}
+aside.form ul.slick-dots li > button {
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+  width: 7px;
+  height: 7px;
+  border-radius: 100px;
+  transition: 0.3s;
+}
+aside.form ul.slick-dots li.slick-active > button {
+  transition: 0.3s;
+  background-color: var(--color-yellow);
+  width: 39px;
+  height: 7px;
+  transform: translateX(-15px);
+}
+input#zip::before {
+  content: url(../images/map-pin.svg);
+}
+.step_icon {
+  position: relative;
+}
+.step_icon::before {
+  content: url(../images/map-pin.svg);
+  position: absolute;
+  left: 17px;
+  margin: auto;
+  z-index: 9;
+  top: 15px;
+}
+input#billAmt {
+  text-align: center;
+  display: block;
+  border: 1px solid green;
+  width: 20%;
+  margin: auto;
+  padding: 4px;
+  outline: 0;
+  color: gray;
+}
